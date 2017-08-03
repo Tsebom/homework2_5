@@ -5,7 +5,7 @@ from threading import Thread
 
 queue_conveert = Queue() # Очередь FIFO
 
-def directory_file(way = ''):
+def directory_file(way=''):
 	"""Абсолютный путь к фаилу, аргумент - (путь от директории с __file__)"""
 	file = os.path.join(os.path.dirname(os.path.abspath(__file__)), way)
 	return file
@@ -20,7 +20,7 @@ def subprocess_convert(list_way):
 	subprocess.call('convert ' + list_way[0] + ' -resize 200 ' + list_way[1])
 
 def way_files(list_file):
-	"""Генерируе данные для subprocess_convert, аргумент - (список исходных фаилов)"""
+	"""Генерируем данные для subprocess_convert, аргумент - (список исходных фаилов)"""
 	for file_jpg in list_file:
 		convert_file = directory_file('Source\\' + file_jpg) # Конвертируемый фаил
 		result_file = directory_file('Result\\' + file_jpg) # Результат	
